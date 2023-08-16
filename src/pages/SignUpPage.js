@@ -47,7 +47,7 @@ const submit = (values,helpers) =>{
 
     return (
       <>
-        <h1 className="login-page">Login Page</h1>
+        <h1 className="login-page">SignUp Page</h1>
         <div className="login-form">
           <Formik
             initialValues={initialValue}

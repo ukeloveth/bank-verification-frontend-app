@@ -1,15 +1,19 @@
 /* SignUpPage.css */
 .signup-page {
-    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
   }
   
   .signup-form {
-    margin: 30px;
     max-width: 400px;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+    margin-top: 15px;
+    margin: auto;
   }
   
   .signup-form label {
@@ -18,11 +22,18 @@
   
   .signup-form button {
     margin-top: 10px;
+    margin-bottom: 50px;
   }
   
   .signup-form p {
     text-decoration: underline;
     cursor: pointer;
+    
+  }
+
+  p.signup-form{
+    margin-top: 10px;
+    width: 150px;
   }
   
   input.input-error,

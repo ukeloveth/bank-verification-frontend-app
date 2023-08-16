@@ -106,13 +106,13 @@ const LoginPage = () => {
             </Form>
           )}
         </Formik>
-
-        <p
-          style={{ textDecoration: "underline", cursor: "pointer" }}
-          onClick={navigateToSignUp}
-        >
+        <span><h6>Don't have account with us,signup</h6></span>                  
+        <p  className="login-form" onClick={() => navigateToSignUp()}>
+          
           Sign Up
+        
         </p>
+
       </div>
     </>
   );

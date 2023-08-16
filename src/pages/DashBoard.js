@@ -53,19 +53,20 @@ const Dashboard = () => {
     navigate("/login");
   };
 
+
+
   return (
     <>
-    {/* <h1>BVN Verification Dashboard</h1> */}
-      <h1 className="bvn">BVN Verification Dashboard</h1>
-      <div className="mb-3">
-     <label htmlFor="bvn" className="form-label">
-        Please input your BVN
-        </label>
+      <h1 className="bvn">BVN Verification App</h1>
       <div className="dashboard-header">
-      <button className="logout-button" onClick={handleLogout}>
-        Logout
-      </button>
-   </div>
+          <button className="logout-button" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
+
+    <div className="verification-container">
+      <div className="mb-3">
+       
         <Formik
           initialValues={initialValue}
           onSubmit={submit}
@@ -77,10 +78,10 @@ const Dashboard = () => {
               <Field name="bvn">
                 {({ field, meta }) => (
                   <>
-                    <label htmlFor="bvn">Email</label>
+                    <label htmlFor="bvn" >Verify Your BVN</label>
                     <div className="form-group">
                       <input
-                        type="bvn"
+                        type="text"
                         id="bvn"
                         placeholder="Please input your BVN"
                         className={`form-control ${
@@ -95,165 +96,25 @@ const Dashboard = () => {
                   </>
                 )}
               </Field>
-
               <button
                 disabled={isSubmitting || !isValid}
                 type="submit"
+                
                 className="btn btn-primary"
+                
               >
-                Submit
+                Verify BVN
               </button>
             </Form>
           )}
         </Formik>
       </div>
+    </div>
     </>
   );
 };
 
-
 export default Dashboard;
-
-
-
-
-
-// return (
-//   <div className="container">
-
-// <div className="container">
-// <h1>BVN Verification Dashboard</h1>
-//     <div className="dashboard-header">
-//       <button className="logout-button" onClick={handleLogout}>
-//         Logout
-//       </button>
-//     </div>
-
-//     <form onSubmit={handleBvnVerification}>
-//       <div className="mb-3">
-//         <label htmlFor="bvn" className="form-label">
-//           Please input your BVN
-//         </label>
-//         <input
-//           type="text"
-//           className="form-control"
-//           id="bvn"
-//           name="bvn"
-//           value={bvnInput}
-//           value={values.bvn}
-//           onChange={handleChange}
-//           onChange={(e) => setBvnInput(e.target.value)}
-//           // pattern="[0-9]{11}"
-//           placeholder="Please enter a valid 11-digit BVN"
-//           onBlur={handleBlur}
-//           className={errors.bvn && touched.bvn ? "input-error":""}
-//         />
-//         {errors.bvn && touched.bvn && <p className="error">{errors.bvn}</p>}
-//       </div>
-//       <button disabled={isSubmitting} type="submit" className="btn btn-primary">
-//         Verify BVN
-//       </button>
-//     </form>
-//   </div>
-//   </div>
-// );
-// };
-
-
-
-
-
-
-
-// import React, { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
-// import "./verification.css";
-// import { toast } from "react-hot-toast";
-// import axiosInstance, { setAuthToken } from "../utils/axiosInstance";
-
-// const Dashboard = () => {
-//   const navigate = useNavigate();
-//   const user = JSON.parse(localStorage.getItem("userData"));
-//   const [bvnInput, setBvnInput] = useState("");
-//   const [isBvnValid, setIsBvnValid] = useState(true); // Track BVN validation
-
-//   useEffect(() => {
-//     if (!user) {
-//       navigate("/login");
-//     }
-//   }, [user, navigate]);
-
-//   const handleBvnVerification = async (e) => {
-//     e.preventDefault();
-
-//     // Validate BVN input
-//     if (!/^[0-9]{11}$/.test(bvnInput)) {
-//       setIsBvnValid(false);
-//       return;
-//     }
-
-//     try {
-//       const response = await axiosInstance.post(
-//         `/users/verifyUserBvn?bvn=${bvnInput}`
-//       );
-
-//       if (response.data.status === "success") {
-//         toast.success(response.data.message);
-//       } else {
-//         toast.error(response.data.message);
-//       }
-
-//       setIsBvnValid(true); // Reset BVN validation status
-
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-
-//   const handleLogout = () => {
-//     setAuthToken();
-//     localStorage.removeItem("userData");
-//     navigate("/login");
-//   };
-
-//   return (
-//     <div className="container">
-//       <h1>BVN Verification Dashboard</h1>
-//       <div className="dashboard-header">
-//         <button className="logout-button" onClick={handleLogout}>
-//           Logout
-//         </button>
-//       </div>
-
-//       <form onSubmit={handleBvnVerification}>
-//         <div className="mb-3">
-//           <label htmlFor="bvn" className="form-label">
-//             Please input your BVN
-//           </label>
-//           <input
-//             type="text"
-//             className={`form-control ${!isBvnValid ? "is-invalid" : ""}`}
-//             id="bvn"
-//             name="bvn"
-//             value={bvnInput}
-//             onChange={(e) => setBvnInput(e.target.value)}
-//             pattern="[0-9]{11}"
-//             title="Please enter a valid 11-digit BVN"
-//             required
-//           />
-//           {!isBvnValid && (
-//             <div className="invalid-feedback">Please enter a valid 11-digit BVN.</div>
-//           )}
-//         </div>
-//         <button type="submit" className="btn btn-primary">
-//           Verify BVN
-//         </button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default Dashboard;
 
 
 
