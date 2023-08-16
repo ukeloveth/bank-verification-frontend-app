@@ -1,0 +1,31 @@
+/* LoginPage.css */
+.login-page {
+    margin-left: 30px;
+  }
+  
+  .login-form {
+    margin: 30px;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .login-form label {
+    font-weight: bold;
+  }
+  
+  .login-form button {
+    margin-top: 10px;
+  }
+
+  input.input-error,
+  select.input-error{
+    border-color: #fc8181;
+  }
+
+  button:disabled{
+    opacity: 0.35;
+  }
+  
